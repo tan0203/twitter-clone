@@ -7,4 +7,5 @@ export const ROUTES = {
   MESSAGES:'messages',
   BOOKMARKS:'bookmarks',
   LISTS:'lists',
+  REGISTER:'register'
 };

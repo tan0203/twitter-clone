@@ -2,8 +2,9 @@ import * as React from 'react';
 import { listMenu } from 'constants/listMenu';
 import Logo from '../logo';
 import User from '../userItem';
-
+import { Link } from 'react-router-dom';
 export interface ColumnItemProps { }
+
 
 export default function ColumnItem(props: ColumnItemProps) {
   return (
@@ -17,10 +18,12 @@ export default function ColumnItem(props: ColumnItemProps) {
                 }`}
               key={item.key}
             >
-              <span className='flex p-3 hover:bg-gray-200 cursor-pointer rounded-full text-center transition-all animate-bg-gray-100'>
-                {item.icon}
-                {item.title}
-              </span>
+              <Link to={item.path??'/'}>
+                <span className='flex p-3 hover:bg-gray-200 cursor-pointer rounded-full text-center transition-all animate-bg-gray-100'>
+                  {item.icon}
+                  {item.title}
+                </span>
+              </Link>
             </li>
           ))}
         </ul>

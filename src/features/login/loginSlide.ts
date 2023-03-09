@@ -4,6 +4,8 @@ import { RootState } from "app/store";
 import { ILogin} from "interfaces";
 import { UserResponse } from "./interface";
 
+// save data 
+
 interface LoginState {
   info: UserResponse;
   isLoading: boolean;

@@ -1,4 +1,4 @@
-
+// khai báo interface
 
 export interface UserResponse {
   _id: string;

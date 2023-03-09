@@ -3,6 +3,8 @@ import { ILogin} from "interfaces";
 import { all, call, fork, put, takeEvery } from "redux-saga/effects";
 import factories from "./factories";
 
+// gọi hàm call API
+
 import {
   loginHome,
   loginHomeFailure,

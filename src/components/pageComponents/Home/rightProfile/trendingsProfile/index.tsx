@@ -1,6 +1,5 @@
 import { MdOutlineMoreHoriz } from 'react-icons/md'
-import WhotoFollow from '../whotofollow';
-export interface TrendingsProps{
+export interface trendingsProfileProps{
 
 }
 const trendings = [
@@ -46,11 +45,9 @@ const trendings = [
 },
 ];
 
-export default function Trendings(props: TrendingsProps) {
+export default function TrendingsProfile(props: trendingsProfileProps) {
   const hoverBgColor = 'hover:bg-gray-200';
-  
   return (
-    
       <div className="">
         <div className="w-7/12 flex justify-center ">
           <div className=" ml-1 p w-10/12">
@@ -70,8 +67,7 @@ export default function Trendings(props: TrendingsProps) {
             </div>
           </div>
         </div>
-        <WhotoFollow/>
-        <div className='w-1/2 '>
+        <div className='w-1/2'>
           <div className=' mt-3 '>
             <div className='flex text-xs ml-9 text-gray-500'>
               <p className='mr-2 hover:underline cursor-pointer'>Terms of Service</p>
