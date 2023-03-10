@@ -9,6 +9,10 @@ import {
   signOut,
 } from "firebase/auth";
 
+interface LoginResponse {
+  username: string;
+  password: string;
+}
 
 const firebaseConfig = {
   apiKey: "AIzaSyDDElwz20dBKl_6nP7KMUzJM_0ZWoFuajs",
@@ -45,7 +49,27 @@ export const signInWithGoogle = (): void => {
 
 export interface LoginPageProps {}
 export default function LoginPage(props: LoginPageProps) {
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
+  const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(event.target.value);
+  };
+
+  const handleLogin = async () => {
+    const response = await fetch(`/api/login?username=${username}`);
+    const json = (await response.json()) as LoginResponse;
+
+    if (json.password === password) {
+      console.log("Login successful!");
+    } else {
+      console.log("Invalid username or password.");
+    }
+  };
   return (
     <div
       // onSubmit={handleLogin}
@@ -81,16 +105,26 @@ export default function LoginPage(props: LoginPageProps) {
           </button>
           <p className="text-white my-4 ml-32">hoặc</p>
           <input
-            // onChange={(event) => {
-            //   setLoginEmail(event.target.value);
-            // }}
+            name="email"
+            value={username}
+            onChange={handleUsernameChange}
             aria-describedby="helper-text-explanation"
             className="bg-black border border-gray-500 text-gray-900 text-sm rounded block w-80 h-14 pl-2 dark:text-white "
             placeholder="Số điện thoại, email hoặc tên người dùng"
           />
-          <button className="h-10 w-80 bg-white mt-4 rounded-full flex font-bold hover:bg-slate-200">
+          <button
+            disabled={!username}
+            onClick={handleLogin}
+            className="h-10 w-80 bg-white mt-4 rounded-full flex font-bold hover:bg-slate-200"
+          >
             <p className="m-auto">Tiếp theo</p>
           </button>
+          {/* <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={handlePasswordChange}
+          /> */}
           <button className="h-10 w-80 bg-black  mt-4 rounded-full flex font-bold border border-gray-500 hover:opacity-40	">
             <p className="m-auto text-white">Quên mật khẩu?</p>
           </button>
