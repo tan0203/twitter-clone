@@ -4,6 +4,7 @@ import ViewpostComponent from 'components/pageComponents/Home/Viewpost';
 import RightitemComponent from 'components/pageComponents/Home/rightItem';
 import { loginHome } from 'features/login/loginSlide';
 import React,{useEffect} from 'react';
+import Kommunicate from './chatbot';
 
 export interface  HomeProps {
 }
@@ -26,6 +27,7 @@ export default function Home (props:  HomeProps) {
       <SidebarComponent/>
       <ViewpostComponent/>
       <RightitemComponent/>
+      <Kommunicate/>
     </div>
   );
 }

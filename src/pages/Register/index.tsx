@@ -44,7 +44,6 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
   const [activeTab, setActiveTab] = React.useState(false);
   const formRef = useRef(null);
 
-  
   return (
     <>
       {" "}
@@ -53,7 +52,7 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
           <InforPage />
         </div>
       ) : (
-        <div className="h-screen w-screen absolute bg-transparent	 z-50">
+        <div className="h-screen w-screen absolute bg-slate-800 z-50">
           <div className="relative h-4/5 w-2/5 bg-black m-auto top-16 rounded-2xl">
             <a
               href="/"
@@ -82,9 +81,6 @@ const RegisterPage: React.FC<RegisterPageProps> = () => {
                 >
                   Đăng ký bằng Google
                 </button>
-                {/* <h1>{localStorage.getItem("name")}</h1>
-              <h1>{localStorage.getItem("email")}</h1>
-              <img src={localStorage.getItem("profilePic")} /> */}
               </button>
               <button className="h-10 w-80 bg-white mt-4 rounded-full flex font-bold hover:bg-slate-200">
                 <i className="fa-brands fa-apple text-2xl ml-14"></i>
